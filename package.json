@@ -4,17 +4,33 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test:e2e": "playwright test"
+    "playwright:install": "playwright install",
+    "playwright": "playwright test",
+    "playwright:cucumber": "bddgen -c playwright.bdd.config.ts && playwright test -c playwright.bdd.config.ts",
+    "cypress": "start-server-and-test dev http://localhost:3000 \\\"cypress run --e2e\\\"",
+    "cypress:cucumber": "start-server-and-test dev http://localhost:3000 \\\"cypress run --e2e -C cypress.bdd.config.ts\\\"",
+    "cypress:open": "start-server-and-test dev http://localhost:3000 \\\"cypress open --e2e\\\""
   },
   "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^20.1.1",
+    "@emotion/cache": "^11.13.1",
+    "@emotion/react": "^11.13.0",
+    "@emotion/styled": "^11.13.0",
+    "@mui/material": "^5.16.6",
+    "@mui/material-nextjs": "^5.16.6",
     "next": "latest",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.2",
     "@playwright/test": "^1.40.1",
     "@types/node": "20.10.4",
     "@types/react": "18.2.45",
+    "cypress": "^13.13.2",
+    "playwright-bdd": "^7.2.1",
+    "start-server-and-test": "^2.0.5",
+    "ts-node": "^10.9.2",
     "typescript": "5.3.3"
   }
 }
